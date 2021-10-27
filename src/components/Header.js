@@ -1,22 +1,31 @@
-import React from "react"
+import React, {useState} from "react"
 import styled from "styled-components";
-
+import HeaderModal from "./HeaderModal";
 // icons
 import { FiMenu } from 'react-icons/fi';
 
+
 const Header = () => {
+    const [click, setClick] = useState(false);
+    const toggleNav = () => setClick(!click);
+
+    
     return (
         <StyledHeader>
             <div className="logoWrapper">
-                <svg className="logo" viewBox="0 0 60 52" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M30 0L14.5 9L30 18L45 9L30 0Z" fill="white"/>
-                    <path d="M30 34.5L0 18V34.5L30 52L60 34.5V18L30 34.5Z" fill="white"/>
-                </svg>
+            <svg width="60" height="52" viewBox="0 0 60 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M30 0L14.5 9L30 18L45 9L30 0Z" fill="white"/>
+            <path d="M30 34.5L0 18V34.5L30 52L60 34.5V18L30 34.5Z" fill="white"/>
+            </svg>
+
             </div>
-            <div className="menu">
-                <FiMenu className="icon" />
+            
+            <div className="menu" onClick ={toggleNav} >
+              <FiMenu className="icon" /> 
             </div>
-        </StyledHeader>
+            {click && <HeaderModal setOpenModal={setClick} />}
+            </StyledHeader>
+        
     )
 }
 
@@ -55,4 +64,6 @@ const StyledHeader = styled.div`
             cursor: pointer;
         }
     }
+    
+   
 `
