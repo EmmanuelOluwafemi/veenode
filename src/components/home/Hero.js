@@ -1,23 +1,23 @@
 import React from "react"
 import styled from "styled-components";
 
-const Hero = () => {
+const Hero = ({ title, subTitle, content }) => {
     return (
         <StyledHero>
             <div className="dash" />
             <div className="content">
                 <h5>
-                    Etiam fusce elit ac nunc orci ac enim.
+                    {subTitle}
                 </h5>
-                <h2>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing. 
+                <h2> 
+                    {title}
                 </h2>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-                    Et convallis lacus, eget suspendisse. A varius mattis 
-                    laoreet enim viverra ligula eget. Volutpat et, 
-                    nec dui luctus aliquam tortor.
-                </p>
+                {
+                    content &&
+                    <p>
+                        {content}
+                    </p>
+                }
             </div>
         </StyledHero>
     )
