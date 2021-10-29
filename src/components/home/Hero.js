@@ -28,6 +28,7 @@ export default Hero;
 const StyledHero = styled.div`
     width: 100%;
     height: calc(100vh - 8.125rem);
+   /* height: 30%; */
     padding: 3rem 12%;
     display: flex;
     align-items: flex-start;
