@@ -1,9 +1,9 @@
 import React from "react"
 import styled from "styled-components";
 
-const Hero = ({ title, subTitle, content }) => {
+const Hero = ({ title, subTitle, content, height }) => {
     return (
-        <StyledHero>
+        <StyledHero height={height}>
             <div className="dash" />
             <div className="content">
                 <h5>
@@ -27,8 +27,7 @@ export default Hero;
 
 const StyledHero = styled.div`
     width: 100%;
-    height: calc(100vh - 8.125rem);
-   /* height: 30%; */
+    height: ${(p) => p.height ? p.height : 'calc(100vh - 8.125rem)'};
     padding: 3rem 12%;
     display: flex;
     align-items: flex-start;

@@ -68,6 +68,7 @@ const Blogs = () => {
             <Header />
             <Hero className="hero"
                 subTitle= "OUR BLOG"
+                height="290px"
                 title = "Lorem ipsum dolor sit. "
             />
             
