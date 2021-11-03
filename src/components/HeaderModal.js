@@ -54,10 +54,11 @@ const HeaderModal = ({setOpenModal}) => {
 export default HeaderModal
 
 const ModalContent = styled.div `
-    position: absolute;
+    position: fixed;
     width: 100vw;
     height: 100vh;
     left: 0;
+    top: 0;
     overflow: hidden;
 
 

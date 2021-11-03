@@ -65,49 +65,51 @@ const SingleBlog = () => {
                 </div>
                 <div className="blueSection" />
 
+                <div className="icon-group">
+                    <a href="!#"><FiFacebook /></a>
+                    <a href="!#"><FiLinkedin /></a>
+                    <a href="!#"><FiTwitter /></a>
+                </div>
+
                 <div className="blogContent">
-                   <div className="socialIcons">
-                        <a href="/" className="socials"><FiLinkedin/></a>
-                        <a href="/" className="socials"><FiTwitter/></a>
-                        <a href="/" className="socials"><FiFacebook/></a>
-                    </div>
                     <div className="articles">
-                    <div className="articleSm">
-                    <p>Social media has become an integral part of digital marketing for business and digital marketing agencies, but engaging in social media activity alone is not the same as delivering a digital marketing campaign. Although the terms Social Marketing and Digital Marketing are often used interchangeably, they are, in fact, two very different things, and understanding this difference is the key to building a rounded marketing strategy. </p>
-                    </div>
-                    <div className="articleLg">
-                    What is social marketing, and why is it different from digital marketing?
-                    </div> 
-                    <div className="articleSm">
-                    Social media has become an integral part of digital marketing for business and digital marketing agencies, but engaging in social media activity alone is not the same as delivering a digital marketing campaign. Although the terms Social Marketing and Digital Marketing are often used interchangeably, they are, in fact, two very different things, and understanding this difference is the key to building a rounded marketing strategy. 
-                    </div>   
-                    <div className="blueSm" />
-                    <div className="articleLg">
-                    What is social marketing, and why is it different from digital marketing?
-                    </div>
-                    <div className="articleSm">
-                    Social media has become an integral part of digital marketing for business and digital marketing agencies, but engaging in social media activity alone is not the same as delivering a digital marketing campaign. Although the terms Social Marketing and Digital Marketing are often used interchangeably, they are, in fact, two very different things, and understanding this difference is the key to building a rounded marketing strategy. 
-                    </div>
+                        <div className="articleSm">
+                        <p>Social media has become an integral part of digital marketing for business and digital marketing agencies, but engaging in social media activity alone is not the same as delivering a digital marketing campaign. Although the terms Social Marketing and Digital Marketing are often used interchangeably, they are, in fact, two very different things, and understanding this difference is the key to building a rounded marketing strategy. </p>
+                        </div>
+                        <div className="articleLg">
+                        What is social marketing, and why is it different from digital marketing?
+                        </div> 
+                        <div className="articleSm">
+                        Social media has become an integral part of digital marketing for business and digital marketing agencies, but engaging in social media activity alone is not the same as delivering a digital marketing campaign. Although the terms Social Marketing and Digital Marketing are often used interchangeably, they are, in fact, two very different things, and understanding this difference is the key to building a rounded marketing strategy. 
+                        </div>   
+                        <div className="blueSm" />
+                        <div className="articleLg">
+                        What is social marketing, and why is it different from digital marketing?
+                        </div>
+                        <div className="articleSm">
+                        Social media has become an integral part of digital marketing for business and digital marketing agencies, but engaging in social media activity alone is not the same as delivering a digital marketing campaign. Although the terms Social Marketing and Digital Marketing are often used interchangeably, they are, in fact, two very different things, and understanding this difference is the key to building a rounded marketing strategy. 
+                        </div>
                     </div> 
                 </div>
                 <div className="recommend-sect">
-                <div className="recommended-nav">
-                    <div className="recommend">
-                        Recommended Articles
+                    <div className="recommended-nav">
+                        <div className="recommend">
+                            Recommended Articles
+                        </div>
+                        <div className="view-all">
+                            View All
+                        </div>
                     </div>
-                    <div className="view-all">
-                        View All
+
+                    <div className="recom-body">
+                        {
+                            data.map((recomPost, index) => (
+                                <SingleRecom key={index} {...recomPost} />
+                            ))
+                        }
                     </div>
-                </div>
                 </div>
                 
-                <div className="recom-body">
-                    {
-                        data.map((recomPost, index) => (
-                            <SingleRecom key={index} {...recomPost} />
-                        ))
-                    }
-                </div>
 
                 <div className="next-article">
                     <div className="nextarticle-info">
@@ -155,158 +157,66 @@ const SingleRecomContainer = styled.div `
 `
 
 const SingleBlogStyle = styled.div`
-    width: 100%;
-    display: block;
-    
+    .blueSection {
+        width: 100%;
+        height: 400px;
+        background: #000;
+        margin: 3rem 0;
+    }
 
-    .author{
-        width: 500px;
-        height: 34;
-        display: flex;
-        flex-direction: row;
-        margin-left: 17%;
-    }
-    .profile{
-        background-color: #C4C4C4;
-        width: 88px;
-        height: 88px;
-        border-radius: 50px;
-        font-size: 60px;
-        
-    }
-    .usericon{
-        margin-left: 13px;
-        margin-top: 10px;
-    }
-    .nameTime{
-        margin-top: 15px;
-        margin-left: 12px;
-        width: 400px;
-        max-height: 68px;
-    }
-    .authorName{
-        font-size: 20px;
-        font-weight: 600px;
-        font-style: normal;
-        line-height: 22.54px;
-        color: #000000;
-    }
-    .duration{
-        font-size: 14px;
-        font-weight: 400;
-        font-style: normal;
-        line-height: 15.78px;
-        color: #302F2F;
-        text-transform: uppercase;
-        margin-top: 10px;
-    }
-    .blueSection{
-        width: 100%;
-        height: 680px;
-        background: #011F32;
-    }
-    .blogContent{
-        position: relative;
-        display: flex;
-        flex-direction: row;
-        width: 80%;
-        left: 5%;
-        margin-top: 87px;   
-    }
-    .socialIcons{
-        flex-grow: 1;
+    .icon-group {
+        background: #fff;
+        padding: 1rem;
+        position: fixed;
+        top: 5rem;
+        left: 3rem;
         display: flex;
         flex-direction: column;
-    }
-    .socials{
-        text-decoration: none;
-        font-size: 20px;
-        color: #000000;
-        margin-bottom: 50px;
-    }
-    .articles   {
-        width: 811px;
-        display: flex;
-        flex-direction: column;
-        flex-grow: 2;
-    }
-    .articleSm{
-        font-size: 24px;
-        line-height: 37px;
-        font-weight: 400;
-        margin-bottom: 16px;
-    }
-    .articleLg{
-        font-size: 40px;
-        font-weight: 600;
-        line-height:60.16px;
-        margin-top: 16px;
-        margin-bottom: 20px;
-    }
-    .blueSm{
-        height: 518px;
-        background: #011F32;
-        margin-top: 16px;
-        margin-bottom: 16px;
-    }
-    .recommend-sect{
-        margin-top: 184px;
-        width: 80%;
-        margin-left: 125px;
-}
-    .recommended-nav{
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        font-size: 40px;
-        font-weight: 600;
-        line-height: 61.67px;
-    }
-    .recom-body{
-        padding: 0 12%;
-        margin-top: 82px;
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        grid-gap: 0.05rem;
-    }
-    .next-article{
-        width: 100%;
-        margin-top: 142px;
-        margin-bottom: 100px;
-    }
-    .nextarticle-info{
-        padding: 3rem 12%;
-        width: 100%;
-        display: flex;
-        align-items: center;
+        max-width: 40px;
         justify-content: center;
-        flex-direction: column;
+        align-items: center;
+
+        a {
+            color: #000;
+            margin-bottom: 1rem;
+        }
+    }
+
+    .blogContent {
+        width: 100%;
+        max-width: 700px;
+        margin: 0 auto;
 
 
-        h4 {
-            font-size: 2rem;
-            font-weight: 400;
-            color: #0D0C0C;
-            text-transform: uppercase;
-            margin-bottom: 2rem;
-            text-align: center;
+        .articleSm {
+            font-size: 1rem;
+            line-height: 1.5;
+            letter-spacing: .03em;
+            margin-bottom: 1rem;
+
+            @media (min-width: 768px) {
+                font-size: 1.2rem;
+            }
         }
 
-        p {
-            font-size: 3rem;
-            font-weight: 600;
-            color: #0D0C0C;
-            text-align: center;
-            line-height: 1.6;
-            max-width: 786px;
-            margin: 0 auto;
-            margin-bottom: 2rem;
+        @media (max-width: 768px) {
+            padding: 0 6%;
+        }
+    }
+
+    .recommend-sect {
+        width: 100%;
+        padding: 0 12%;
+
+        @media (max-width: 768px) {
+            padding: 0;
         }
 
-        .icons {
-            font-size: 3.5rem;
-            color: #0D0C0C;
-            cursor: pointer;
+        .recom-body {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(224px, 1fr));
+            grid-gap: 3rem;
+            justify-content: space-between;
         }
     }
 `
