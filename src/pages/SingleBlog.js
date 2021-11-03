@@ -47,6 +47,7 @@ const SingleBlog = () => {
                 <Header />
                 <Hero 
                 subTitle = "CRYPTO"
+                height="250px"
                 title = "Lorem ipsum dolor sit"
                 />
                 <div className="author">
@@ -156,15 +157,13 @@ const SingleRecomContainer = styled.div `
 const SingleBlogStyle = styled.div`
     width: 100%;
     display: block;
-
+    
 
     .author{
         width: 500px;
         height: 34;
         display: flex;
         flex-direction: row;
-        position: absolute;
-        top: 45%;
         margin-left: 17%;
     }
     .profile{
