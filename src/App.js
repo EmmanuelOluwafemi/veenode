@@ -2,6 +2,7 @@ import Home from "./pages/Home";
 import Blogs from "./pages/Blogs"
 import SingleBlog from "./pages/SingleBlog"
 import CaseStudy from "./pages/CaseStudy";
+import About from "./pages/About";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 function App() {
   return (
@@ -17,6 +18,9 @@ function App() {
       </Route>
       <Route exact path="/casestudy">
       <CaseStudy />
+      </Route>
+      <Route exact path="/about">
+      <About />
       </Route>
       </Switch>
     </>
