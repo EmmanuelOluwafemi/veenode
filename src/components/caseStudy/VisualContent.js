@@ -37,7 +37,9 @@ const VisualContentStyle = styled.div`
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         margin: 3rem 0;
-    
+        @media (max-width: 768px) {
+                grid-template-columns: repeat(1, 1fr);
+        }
 
         .vis1text{
             width: 100%;
@@ -49,7 +51,7 @@ const VisualContentStyle = styled.div`
         }
         .vis1blue{
             background-color: #011F32;
-
+            height: 564px;
         }
     }
     .blueSection {

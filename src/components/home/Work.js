@@ -31,7 +31,7 @@ const StyledWork = styled.section`
     align-items: center;
     justify-content: flex-start;
     flex-direction: column;
-    margin-top: 5rem;
+    margin-top: 10rem;
 
     .introVideo {
         width: 100%;

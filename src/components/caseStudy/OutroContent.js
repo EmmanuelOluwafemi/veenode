@@ -50,6 +50,9 @@ const OutroContentStyle = styled.div`
         width: 100%;
         margin-top: 20px;
         padding:  6.438rem 12.5rem;
+        @media (max-width: 768px) {
+                grid-template-columns: repeat(1, 1fr);
+        }
         
         .outcome-text{
         font-size: 40px;

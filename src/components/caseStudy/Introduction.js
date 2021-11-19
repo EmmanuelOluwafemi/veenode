@@ -59,7 +59,9 @@ const StyledIntro = styled.div`
             width: 100%;
             margin: 0 auto;
             border-bottom: 1px solid #011F32 ;
-            
+            @media (max-width: 768px) {
+                grid-template-columns: repeat(1, 1fr);
+        }
         }
         .work-text{
             font-size: 40px;
@@ -100,9 +102,11 @@ const StyledIntro = styled.div`
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             width: 100%;
-            margin-top: 30px;
-            
+            margin-top: 30px;           
             border-bottom: 1px solid #011F32 ;
+            @media (max-width: 768px) {
+                grid-template-columns: repeat(1, 1fr);
+        }
         }
         .obj-text{
             font-size: 40px;
