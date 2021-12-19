@@ -46,8 +46,7 @@ const Login = () => {
                 draggable: true,
                 progress: undefined,
             });
-        })
-        
+        }) 
     }
 
     return (
