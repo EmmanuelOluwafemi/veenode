@@ -5,6 +5,7 @@ import SIdebar from './SIdebar'
 
 import { FiLogOut } from 'react-icons/fi';
 import { HiMenuAlt4 } from 'react-icons/hi';
+import { Outlet } from 'react-router-dom';
 
 const Dashboard = ({ children }) => {
 
@@ -22,8 +23,9 @@ const Dashboard = ({ children }) => {
                         Logout
                     </button>
                 </div>
-
-                { children }
+                <div className="wrapper_content">
+                    <Outlet />
+                </div>
             </div>
         </StyledDashboard>
     )
@@ -32,7 +34,9 @@ const Dashboard = ({ children }) => {
 export default Dashboard
 
 const StyledDashboard = styled.div`
-    width: 100vw;
+    width: 100%;
+    max-width: 100vw;
+    overflow-x: hidden;
     height: 100vh;
     display: flex;
     background: #F5F0F0;
@@ -85,6 +89,16 @@ const StyledDashboard = styled.div`
                     color: #000;
                 }
             }
+        }
+    }
+
+    .wrapper_content {
+        padding-right: 5rem;
+        margin-top: 3.5rem;
+
+        @media (max-width: 768px) {
+            padding-right: 0;
+            padding: 0 2rem;
         }
     }
 `

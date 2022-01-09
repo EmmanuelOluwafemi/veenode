@@ -16,6 +16,7 @@ const CaseStudy = () => {
                 height="290px"
                 title="Lorem ipsum dolor sit amet"
                 subTitle="Proffessional services"
+                content="."
             />
             <Introduction/>
             <VisualContent />

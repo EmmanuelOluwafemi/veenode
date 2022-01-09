@@ -18,49 +18,55 @@ const IntroSection = () => {
 export default IntroSection
 
 const IntroSectStyle = styled.section`
+    width: 100%;
+    min-height: 700px;
+    background: #00111D;
+    padding: 0 6%;
+    padding-bottom: 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: column;
+    margin-top: 5rem;
+
+    .introImage{
         width: 100%;
-        min-height: 700px;
-        background: #00111D;
-        padding: 0 6%;
-        padding-bottom: 4rem;
+        max-width: 1037px;
+        height: 28rem;
+        background: #011F32;
+        color: #fff;
+        margin-top: -20rem;
         display: flex;
         align-items: center;
-        justify-content: flex-start;
-        flex-direction: column;
-        margin-top: 5rem;
+        justify-content: center;
+    }
 
-        .introImage{
-            width: 100%;
-            max-width: 1037px;
-            height: 28rem;
-            background: #011F32;
-            color: #fff;
-            margin-top: -14rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
     .content{
         width: 100%;
         max-width: 1037px;
         margin-top: 5rem;
         color: #fff;
+
         .text-hd{
-            font-size: 24px;
+            font-size: 1.5rem;
             font-weight: 700;
             max-width: 522px;
             width: 100%;
-            line-height: 35.30px;
+            line-height: 1.5;
+            margin-bottom: 1rem;
         }
+
         .text-md{
-            font-size: 48px;
+            font-size: 3rem;
             font-weight: 600;
             font-style: normal;
-            line-height: 69.69px;
+            line-height: 1.5;
+            margin-bottom: 1.25rem;
+
             @media (max-width: 500px) {
-            font-size: 36px;
-        }
-        }
+                font-size: 2rem;
+            }
+    }
         
         
         .text-sm{

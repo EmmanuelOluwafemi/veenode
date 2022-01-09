@@ -5,35 +5,36 @@ import Blogs from "./pages/Blogs"
 import SingleBlog from "./pages/SingleBlog"
 import CaseStudy from "./pages/CaseStudy";
 import About from "./pages/About";
-import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { BrowserRouter, Route, Routes, } from "react-router-dom";
 import Login from "./pages/auth/Login";
+import Blog from './pages/dashboard/pages/Blog';
 import DashboardPage from './pages/dashboard/pages/Dashboard';
+import Teams from './pages/dashboard/pages/Teams';
+import Dashboard from './pages/dashboard';
+import Category from './pages/dashboard/pages/Category';
+import Services from './pages/Services';
+import Contact from './pages/Contact';
+
 function App() {
   return (
     <BrowserRouter>
-    <>
-      <Switch>
-        <Home exact path="/" />
-        <Route exact path="/blogs">
-          <Blogs />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="blogs" element={<Blogs />}>
+          <Route path=":id" element={<SingleBlog />} />
         </Route>
-        <Route exact path="/blogs/:id">
-          <SingleBlog />
+        <Route path="casestudy" element={<CaseStudy />} />
+        <Route path="about" element={<About />} />
+        <Route path="contact" element={<Contact />} />
+        <Route path="services" element={<Services />} />
+        <Route path="login" element={<Login />} />
+        <Route path="user" element={<Dashboard />}>
+          <Route index element={<DashboardPage />} />
+          <Route path="blogs" element={<Blog />} />
+          <Route path="teams" element={<Teams />} />
+          <Route path="category" element={<Category />} />
         </Route>
-        <Route exact path="/casestudy">
-          <CaseStudy />
-        </Route>
-        <Route exact path="/about">
-          <About />
-        </Route>
-        <Route exact path="/login">
-          <Login />
-        </Route>
-        <Route exact path="/dashboard">
-          <DashboardPage />
-        </Route>
-      </Switch>
-    </>
+      </Routes>
     </BrowserRouter>
   );
 }

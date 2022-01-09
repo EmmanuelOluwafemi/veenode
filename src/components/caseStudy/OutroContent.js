@@ -50,8 +50,10 @@ const OutroContentStyle = styled.div`
         width: 100%;
         margin-top: 20px;
         padding:  6.438rem 12.5rem;
+        
         @media (max-width: 768px) {
-                grid-template-columns: repeat(1, 1fr);
+            grid-template-columns: 100%;
+            padding: 3rem 2rem;
         }
         
         .outcome-text{
@@ -60,11 +62,16 @@ const OutroContentStyle = styled.div`
         line-height: 60px;
     }
         .outcome-details{
-        font-size: 24px;
-        font-weight: normal;
-        line-height: 2rem;
-        letter-spacing: .03;
-    }
+            font-size: 1.5rem;
+            font-weight: normal;
+            line-height: 2rem;
+            letter-spacing: .03;
+
+            @media (max-width: 768px) {
+                font-size: 1rem;
+                line-height: 1.5;
+            }
+        }
    
     }
     

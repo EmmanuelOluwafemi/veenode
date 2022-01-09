@@ -7,7 +7,7 @@ const Testimonial = () => {
         <TestimonyContainer>
             <div className="testimony-content">
                 <h4>testimonial</h4>
-                <p>
+                <p className='prog'>
                     “Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
                     Tristique et feugiat ac, neque. Netus lobortis enim 
                     adipiscing iaculis quis malesuada ac.”
@@ -40,9 +40,13 @@ const TestimonyContainer = styled.section`
             margin-bottom: 1.5rem;
             text-transform: uppercase;
             text-align: center;
+
+            @media (max-width: 768px) {
+                font-size: 1rem;
+            }
         }
 
-        p {
+        .prog {
             font-size: 2.5rem;
             font-weight: 600;
             color: #0D0C0C;
@@ -50,6 +54,10 @@ const TestimonyContainer = styled.section`
             font-style: italic;
             margin-bottom: 2rem;
             text-align: center;
+
+            @media (max-width: 768px) {
+                font-size: 1.5rem;
+            }
         }
 
         .testimony-author {

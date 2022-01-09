@@ -53,20 +53,27 @@ const StyledIntro = styled.div`
         display: flex;
         flex-direction: column;
         padding:  6.438rem 12.5rem;
+
+        @media (max-width: 768px) {
+            padding:  3rem 2rem;
+        }
+
         .work-box{
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             width: 100%;
             margin: 0 auto;
             border-bottom: 1px solid #011F32 ;
+
             @media (max-width: 768px) {
-                grid-template-columns: repeat(1, 1fr);
+                grid-template-columns: 100%;
+            }
         }
-        }
+
         .work-text{
-            font-size: 40px;
+            font-size: 2.5rem;
             font-weight: mormal;
-            line-height: 60px;
+            line-height: 1.5;
         }
         .work-details{
             display: flex;
@@ -97,6 +104,11 @@ const StyledIntro = styled.div`
             letter-spacing: .03;
             margin-top: 51px;
             margin-bottom: 81px;
+
+            @media (max-width: 768px) {
+                font-size: 1rem;
+                line-height: 1.5;
+            }
         }
         .obj-box{
             display: grid;
@@ -118,8 +130,13 @@ const StyledIntro = styled.div`
             font-weight: normal;
             line-height: 2rem;
             letter-spacing: .03;
-            /* margin-top: 51px; */
-             margin-bottom: 81px;
+            margin-bottom: 5rem;
+
+            @media (max-width: 768px) {
+                font-size: 1rem;
+                line-height: 1.5;
+                margin-bottom: 2rem;
+            }
         }
     }
     

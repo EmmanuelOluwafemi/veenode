@@ -57,10 +57,16 @@ const ProjectsContainer = styled.section`
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-gap: 1.5rem;
+
+    @media (max-width: 768px) {
+        grid-template-columns: 100%;
+        padding: 0 2rem;
+    }
 `
 
 const SingleProjectContainer = styled.div`
     width: 100%;
+    max-width: 100vw;
 
     .img-container {
         width: 100%;
@@ -68,9 +74,15 @@ const SingleProjectContainer = styled.div`
         min-height: 500px;
         background-color: #011F32;
 
+        @media (max-width: 768px) {
+            min-height: 200px;
+            max-height: 200px;
+            overflow: hidden;
+        }
+
         img {
             width: 100%;
-            height: auto;
+            height: 100%;
             object-fit: cover;
         }
     }
@@ -82,6 +94,10 @@ const SingleProjectContainer = styled.div`
             font-size: 2rem;
             font-weight: 600;
             color: #011F32;
+
+            @media (max-width: 768px) {
+                font-size: 1.5rem;
+            }
         }
 
         .description {
@@ -89,6 +105,10 @@ const SingleProjectContainer = styled.div`
             font-weight: 400;
             color: #011F32;
             margin-top: .5rem;
+
+            @media (max-width: 768px) {
+                font-size: .85rem;
+            }
         }
     }
 `

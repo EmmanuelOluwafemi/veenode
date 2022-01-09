@@ -4,7 +4,6 @@ import styled from 'styled-components'
 const Work = () => {
     return (
         <StyledWork>
-            hello
             <div className="introVideo">play</div>
             <div className="content">
                 <h4>Our life’s work</h4>
@@ -23,9 +22,10 @@ export default Work
 
 const StyledWork = styled.section`
     width: 100%;
+    max-width: 100vw;
     min-height: 400px;
     background: #00111D;
-    padding: 0 6%;
+    padding: 0 2rem;
     padding-bottom: 4rem;
     display: flex;
     align-items: center;
@@ -39,10 +39,14 @@ const StyledWork = styled.section`
         height: 28rem;
         background: #011F32;
         color: #fff;
-        margin-top: -14rem;
+        margin-top: -20rem;
         display: flex;
         align-items: center;
         justify-content: center;
+
+        @media (max-width: 768px) {
+            height: 20rem;
+        }
     }
 
     .content {
@@ -53,12 +57,20 @@ const StyledWork = styled.section`
         display: flex;
         justify-content: space-between;
 
+        @media (max-width: 768px) {
+            flex-direction: column;
+        }
+
         h4 {
             font-size: 3rem;
             font-weight: 600;
             color: #fff;
             max-width: 428px;
             width: 100%;
+
+            @media (max-width: 768px) {
+                font-size: 2rem;
+            }
         }
 
         p {
@@ -66,6 +78,10 @@ const StyledWork = styled.section`
             font-size: 1rem;
             margin-top: .8rem;
             line-height: 1.7;
+
+            @media (max-width: 768px) {
+                font-size: .85rem;
+            }
         }
     }
 `

@@ -1,6 +1,6 @@
 import axios from 'axios'
 import React from 'react'
-import { useHistory } from 'react-router'
+import { useNavigate } from 'react-router'
 import { toast, ToastContainer } from 'react-toastify'
 
 import styled from 'styled-components'
@@ -9,7 +9,7 @@ import FormGroup from '../../components/FormGroup'
 import Header from '../../components/Header'
 
 const Login = () => {
-    const history = useHistory()
+    const navigate = useNavigate()
     const [email, setEmail] = React.useState('')
     const [password, setPassword] = React.useState('')
     const [loading, setLoading] = React.useState(false)
@@ -28,7 +28,7 @@ const Login = () => {
         })
         .then(res => {
             localStorage.setItem('token', res.data.key)
-            history.push('/dashboard')
+            navigate('/user')
             clear();
             setLoading(false)
         })

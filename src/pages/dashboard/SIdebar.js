@@ -2,8 +2,9 @@ import React from 'react'
 
 import { FiGrid, FiSlack, FiUsers } from 'react-icons/fi'
 import { IoCloseCircleOutline } from 'react-icons/io5'
+import { BiCategoryAlt } from 'react-icons/bi'
 
-import { Link } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
 
 import styled from 'styled-components'
 
@@ -17,18 +18,38 @@ const SIdebar = ({open, setOpen}) => {
             </Link>
 
             <div className="main">
-                <Link to="/">
+                <NavLink onClick={
+                () => {
+                    setOpen(!open)
+                }
+            } to="/user">
                     <FiGrid className='icon' />
                     Dashboard
-                </Link>
-                <Link to="/">
+                </NavLink>
+                <NavLink onClick={
+                () => {
+                    setOpen(!open)
+                }
+            } to="/user/blogs">
                     <FiSlack className='icon' />
                     Blog
-                </Link>
-                <Link to="/">
+                </NavLink>
+                <NavLink onClick={
+                () => {
+                    setOpen(!open)
+                }
+            } to="/user/teams">
                     <FiUsers className='icon' />
                     Teams
-                </Link>
+                </NavLink>
+                <NavLink onClick={
+                () => {
+                    setOpen(!open)
+                }
+            } to="/user/category">
+                    <BiCategoryAlt className='icon' />
+                    Blog Category
+                </NavLink>
             </div>
 
             <IoCloseCircleOutline onClick={
@@ -51,6 +72,7 @@ const StyledSidebar = styled.div`
     height: 100%;
     background: #fff;
     padding: 0 3rem;
+    z-index: 3;
 
     @media (max-width: 768px) {
         max-width: 100vw;

@@ -43,11 +43,14 @@ const VisualContentStyle = styled.div`
 
         .vis1text{
             width: 100%;
+            min-height: 20rem;
             text-align: center;
             font-weight: 700;
-            font-size: 40px;
-            line-height: 58px;
-            padding: 15rem;
+            font-size: 2.5rem;
+            line-height: 3rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
         .vis1blue{
             background-color: #011F32;

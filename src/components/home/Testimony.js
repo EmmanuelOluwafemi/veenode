@@ -23,7 +23,12 @@ export default Testimony
 
 const TestimonyContainer = styled.section`
     width: 100%;
+    max-width: 100vw;
     padding: 3rem 6%;
+
+    @media (max-width: 768px) {
+        padding: 3rem 2rem;
+    }
     
     .testimony-content {
         max-width: 786px;
@@ -40,6 +45,10 @@ const TestimonyContainer = styled.section`
             margin-bottom: 1.5rem;
             text-transform: uppercase;
             text-align: center;
+
+            @media (max-width: 768px) {
+                font-size: 1.5rem;
+            }
         }
 
         p {
@@ -50,6 +59,10 @@ const TestimonyContainer = styled.section`
             font-style: italic;
             margin-bottom: 2rem;
             text-align: center;
+
+            @media (max-width: 768px) {
+                font-size: 1rem;
+            }
         }
 
         .testimony-author {
@@ -57,6 +70,10 @@ const TestimonyContainer = styled.section`
             font-weight: 400;
             color: #0D0C0C;
             text-align: center;
+
+            @media (max-width: 768px) {
+                font-size: 1rem;
+            }
         }
     }
 `

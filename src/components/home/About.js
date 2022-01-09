@@ -24,6 +24,7 @@ export default About;
 
 const AboutWrapper = styled.section`
     width: 100%;
+    max-width: 100vw;
     
     .aboutImg {
         width: 100%;
@@ -39,6 +40,7 @@ const AboutWrapper = styled.section`
         justify-content: center;
         flex-direction: column;
 
+        
         h4 {
             font-size: 2rem;
             font-weight: 700;
@@ -47,7 +49,7 @@ const AboutWrapper = styled.section`
             margin-bottom: 2rem;
             text-align: center;
         }
-
+        
         p {
             font-size: 3rem;
             font-weight: 700;
@@ -58,11 +60,27 @@ const AboutWrapper = styled.section`
             margin: 0 auto;
             margin-bottom: 2rem;
         }
-
+        
         .icons {
             font-size: 3.5rem;
             color: #0D0C0C;
             cursor: pointer;
         }
+
+        @media (max-width: 768px) {
+            padding: 3rem 2rem;
+
+            h4 {
+                font-size: 1.5rem;
+            }
+
+            p {
+                font-size: 1rem;
+            }
+
+            .icons {
+                font-size: 2rem;
+            }
+        }
     }
-`
+    `

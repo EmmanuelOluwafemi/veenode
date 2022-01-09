@@ -34,10 +34,15 @@ export default Header;
 const StyledHeader = styled.div`
     width: 100%;
     max-width: 100vw;
+    height: 8.125rem;
     padding: 0 6%;
     display: flex;
     align-items: flex-start;
     justify-content: space-between;
+
+    @media (max-width: 768px) {
+        height: 4.5rem;
+    }
 
     .logoWrapper {
         width: 8.125rem;
@@ -47,14 +52,23 @@ const StyledHeader = styled.div`
         align-items: center;
         justify-content: center;
 
-        .logo {
+        svg {
             width: 3.75rem;
             height: auto;
+        }
+
+        @media (max-width: 768px) {
+            width: 4.5rem;
+            height: 4.5rem;
+
+            svg {
+                width: 2rem;
+            }
         }
     }
 
     .menu {
-        height: 8.125rem;
+        height: 100%;
         display: flex;
         align-items: center;
 

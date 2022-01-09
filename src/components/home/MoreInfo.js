@@ -39,16 +39,27 @@ export default MoreInfo
 
 const StyledMoreInfo = styled.div`
     width: 100%;
+    max-width: 100vw;
     background: #000C13;
     max-width: 100vw;
     min-height: 750px;
     padding: 5rem 0;
 
     .logosContainer {
-        padding: 0 12%;
+        padding: 0 2rem;
         display: flex;
         align-items: center;
         justify-content: space-between;
+
+        @media (max-width: 768px) {
+            flex-wrap: wrap;
+            gap: 1rem 0;
+
+            img {
+                width: 6rem;
+                height: auto;
+            }
+        }
     }
 
     .moreInfoContainer {
@@ -58,10 +69,18 @@ const StyledMoreInfo = styled.div`
         grid-gap: 2rem;
         margin-top: 5rem;
 
+        @media (max-width: 768px) {
+            grid-template-columns: 100%;
+        }
+
         .heading {
             font-size: 2.5rem;
             font-weight: 700;
             color: #fff;
+
+            @media (max-width: 768px) {
+                font-size: 2rem;
+            }
         }
         
         .para {
@@ -69,6 +88,10 @@ const StyledMoreInfo = styled.div`
             font-weight: 400;
             color: #fff;
             line-height: 1.7;
+
+            @media (max-width: 768px) {
+                font-size: .85rem;
+            }
         }
     }
 `
