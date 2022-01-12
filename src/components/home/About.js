@@ -42,8 +42,8 @@ const AboutWrapper = styled.section`
 
         
         h4 {
-            font-size: 2rem;
-            font-weight: 700;
+            font-size: 1rem;
+            font-weight: 200;
             color: #0D0C0C;
             text-transform: uppercase;
             margin-bottom: 2rem;
@@ -52,7 +52,7 @@ const AboutWrapper = styled.section`
         
         p {
             font-size: 3rem;
-            font-weight: 700;
+            font-weight: 200;
             color: #0D0C0C;
             text-align: center;
             line-height: 1.6;

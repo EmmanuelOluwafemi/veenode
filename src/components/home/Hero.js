@@ -49,10 +49,11 @@ const StyledHero = styled.div`
     width: 100%;
     max-width: 100vw;
     height: ${(p) => p.height ? p.height : 'calc(100vh - 8.125rem)'};
-    padding: 3rem 12%;
+    padding: 11rem 15%;
     display: flex;
-    align-items: flex-start;
-    padding-top: 8rem;
+    justify-content: center;
+    align-self: center;
+    column-gap: 20px;
 
     @media (max-width: 768px) {
         padding: 2rem 2rem;
@@ -61,7 +62,7 @@ const StyledHero = styled.div`
 
     .dash {
         width: 3rem;
-        height: 4px;
+        height: 2px;
         background: #00111D;
 
         @media (max-width: 768px) {
@@ -81,7 +82,7 @@ const StyledHero = styled.div`
 
         h2 {
             font-size: 3.5rem;
-            font-weight: 600;
+            font-weight: 200;
             color: #00111D;
             text-transform: uppercase;
             line-height: 1.3;
@@ -92,7 +93,7 @@ const StyledHero = styled.div`
         }
 
         h5 {
-            font-weight: 600;
+            font-weight: 200;
             color: #00111D;
             font-size: 1rem;
             text-transform: uppercase;

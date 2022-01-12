@@ -21,7 +21,7 @@ const MoreInfo = () => {
             </div>
 
             <div className="moreInfoContainer">
-                <div className="heading">Our life’s work</div>
+                <div className="heading">Featured work</div>
                 <div className="para">
                     Lorem ipsum dolor sit amet, consectetur 
                     adipiscing elit. Purus ut facilisis etiam 
@@ -45,6 +45,10 @@ const StyledMoreInfo = styled.div`
     min-height: 750px;
     padding: 5rem 0;
 
+    @media (max-width: 768px) {
+        margin-top: 50px;
+    }
+
     .logosContainer {
         padding: 0 2rem;
         display: flex;
@@ -63,7 +67,7 @@ const StyledMoreInfo = styled.div`
     }
 
     .moreInfoContainer {
-        padding: 0 12%;
+        padding: 0 15%;
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         grid-gap: 2rem;
@@ -75,7 +79,7 @@ const StyledMoreInfo = styled.div`
 
         .heading {
             font-size: 2.5rem;
-            font-weight: 700;
+            font-weight: 200;
             color: #fff;
 
             @media (max-width: 768px) {
@@ -84,7 +88,7 @@ const StyledMoreInfo = styled.div`
         }
         
         .para {
-            font-size: 1.5rem;
+            font-size: 1rem;
             font-weight: 400;
             color: #fff;
             line-height: 1.7;

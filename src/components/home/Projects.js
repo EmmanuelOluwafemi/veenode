@@ -19,18 +19,100 @@ const data = [
         title: 'Project Name',
         desc: 'In varius luctus molestie ultrices.'
     },
+    {
+        title: 'Project Name',
+        desc: 'In varius luctus molestie ultrices.'
+    },
+    {
+        title: 'Project Name',
+        desc: 'In varius luctus molestie ultrices.'
+    },
+    {
+        title: 'Project Name',
+        desc: 'In varius luctus molestie ultrices.'
+    },
+    {
+        title: 'Project Name',
+        desc: 'In varius luctus molestie ultrices.'
+    },
 ]
 
 const SingleProject = ({ title, desc }) => {
     return (
         <SingleProjectContainer>
+           <div className="box-container">
+            <div className="left-boxes">
+            
+            <div className="box box-1">
             <div className="img-container">
+                <img src="https://via.placeholder.com/200" alt="project" />
+            </div>
+            <div className="project-info">
+                <h4 className="title">{data.[0].title}</h4>
+                <p className="description">{data.[0].desc}</p>
+            </div>
+            </div>
+            <div className="box box-2">
+            <div className="img-container">
+                <img src="https://via.placeholder.com/507" alt="project" />
+            </div>
+            <div className="project-info">
+            <h4 className="title">{data.[1].title}</h4>
+                <p className="description">{data.[1].desc}</p>
+            </div>
+            </div>
+            <div className="box box-3">
+            <div className="img-container">
+                <img src="https://via.placeholder.com/507" alt="project" />
+            </div>
+            <div className="project-info">
+            <h4 className="title">{data.[1].title}</h4>
+                <p className="description">{data.[2].desc}</p>
+            </div>
+                
+            </div>
+            </div>
+
+
+            <div className="right-boxes">
+            <div className="box box-4">
+            <div className="img-container">
+                <img src="https://via.placeholder.com/507" alt="project" />
+            </div>
+            <div className="project-info">
+            <h4 className="title">{data.[3].title}</h4>
+                <p className="description">{data.[3].desc}</p>
+            </div>
+            </div>
+            <div className="box box-5">
+            <div className="img-container">
+                <img src="https://via.placeholder.com/507" alt="project" />
+            </div>
+            <div className="project-info">
+            <h4 className="title">{data.[4].title}</h4>
+                <p className="description">{data.[4].desc}</p>
+            </div>
+            </div>
+            < div className="box box-6">
+            <div className="img-container">
+                <img src="https://via.placeholder.com/507" alt="project" />
+            </div>
+            <div className="project-info">
+            <h4 className="title">{data.[5].title}</h4>
+                <p className="description">{data.[5].desc}</p>
+            </div>
+
+            </div>
+            </div>
+            </div>
+          
+            {/* <div className="img-container">
                 <img src="https://via.placeholder.com/507" alt="project" />
             </div>
             <div className="project-info">
                 <h4 className="title">{title}</h4>
                 <p className="description">{desc}</p>
-            </div>
+            </div> */}
         </SingleProjectContainer>
     )
 }
@@ -38,11 +120,12 @@ const SingleProject = ({ title, desc }) => {
 const Projects = () => {
     return (
         <ProjectsContainer>
-            {
+            <SingleProject/>
+            {/* {
                 data.map((project, index) => (
                     <SingleProject key={index} {...project} />
                 ))
-            }
+            } */}
         </ProjectsContainer>
     )
 }
@@ -51,12 +134,12 @@ export default Projects
 
 const ProjectsContainer = styled.section`
     width: 100%;
-    padding: 0 12%;
+    padding: 0 25%;
     margin-top: -12rem;
     margin-bottom: 6rem;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-gap: 1.5rem;
+    display: flex;
+    /* grid-template-columns: repeat(2, 1fr);
+    grid-gap: 1.5rem; */
 
     @media (max-width: 768px) {
         grid-template-columns: 100%;
@@ -70,7 +153,6 @@ const SingleProjectContainer = styled.div`
 
     .img-container {
         width: 100%;
-        height: auto;
         min-height: 500px;
         background-color: #011F32;
 
@@ -87,12 +169,43 @@ const SingleProjectContainer = styled.div`
         }
     }
 
+    .box-container{
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        margin-bottom: 20px;
+        column-gap: 60px;
+        
+        @media (max-width: 768px) {
+            flex-direction: column;
+        }
+    }
+    .box{
+        width: 100%; 
+        margin-top: 20px;
+    }
+
+    .left-boxes{
+        display: flex;
+        flex-direction: column;
+
+    }
+
+    .right-boxes{
+        padding-left: 20px;
+        padding-top: 50px;
+        display: flex;
+        flex-direction: column;
+    }
+
     .project-info {
         padding: 1.5rem 0;
 
         .title {
             font-size: 2rem;
-            font-weight: 600;
+            font-weight: 200;
             color: #011F32;
 
             @media (max-width: 768px) {
@@ -111,4 +224,6 @@ const SingleProjectContainer = styled.div`
             }
         }
     }
+
+
 `

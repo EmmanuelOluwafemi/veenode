@@ -22,8 +22,8 @@ const Footer = () => {
                 <div className="firstSection">
                     <div className="orgTitle">
                     <div className="logoWrapper">
-                        <svg className="logo" width="130" height="130" viewBox="0 0 130 130" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <rect width="130" height="130" fill="white"/>
+                        <svg className="logo" width="40" height="40" viewBox="0 0 130 130" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="130" height="130"/>
                         <path d="M65 39L49.5 48L65 57L80 48L65 39Z" fill="#006EB6"/>
                         <path d="M65 73.5L35 57V73.5L65 91L95 73.5V57L65 73.5Z" fill="#006EB6"/>
                         </svg>
@@ -105,7 +105,7 @@ const StyledFooter = styled.section`
 
             .contactMain {
                 font-size: 2.5rem;
-                font-weight: 600;
+                font-weight: 200;
                 line-height: 1.5;
                 color: #fff;
 
@@ -218,8 +218,7 @@ const StyledFooter = styled.section`
         font-size: 1.125rem;
         text-transform: uppercase;
         color: #8D8D8D;
-        margin-bottom: 1rem;
-        margin-top: 2.5rem;
+        margin-bottom: 3rem;
 
         @media (max-width: 768px) {
             text-align: center;
@@ -249,17 +248,17 @@ const StyledFooter = styled.section`
         width: 100%;
         max-width: 381px;
         height: 2;
-        border-top-style: hidden;
-        border-right-style: hidden;
-        border-left-style: hidden;
-        border-bottom-style: groove;
+        outline: 0;
+        border-width: 0 0 2px;
         border-color: #ffff;
         background-color: #000C13;
         color: #fff;
+        font-size: 1.2rem;
         
     }
     .arrow-icon{
         float: right;
+        bottom: 30px;
         margin-top: 5px; 
         position: relative;
         z-index: 2;

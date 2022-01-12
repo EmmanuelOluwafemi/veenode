@@ -32,6 +32,11 @@ const StyledWork = styled.section`
     justify-content: flex-start;
     flex-direction: column;
     margin-top: 10rem;
+    position: relative;
+
+    @media (max-width: 768px) {
+            margin-top: 25rem;
+        }
 
     .introVideo {
         width: 100%;
@@ -43,6 +48,7 @@ const StyledWork = styled.section`
         display: flex;
         align-items: center;
         justify-content: center;
+
 
         @media (max-width: 768px) {
             height: 20rem;
@@ -63,7 +69,7 @@ const StyledWork = styled.section`
 
         h4 {
             font-size: 3rem;
-            font-weight: 600;
+            font-weight: 200;
             color: #fff;
             max-width: 428px;
             width: 100%;
@@ -77,7 +83,7 @@ const StyledWork = styled.section`
             flex-grow: 1;
             font-size: 1rem;
             margin-top: .8rem;
-            line-height: 1.7;
+            line-height: 2.5;
 
             @media (max-width: 768px) {
                 font-size: .85rem;

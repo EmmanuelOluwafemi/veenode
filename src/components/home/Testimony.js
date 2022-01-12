@@ -40,7 +40,7 @@ const TestimonyContainer = styled.section`
 
         h4 {
             font-size: 2rem;
-            font-weight: 600;
+            font-weight: 500;
             color: #0D0C0C;
             margin-bottom: 1.5rem;
             text-transform: uppercase;
@@ -53,7 +53,7 @@ const TestimonyContainer = styled.section`
 
         p {
             font-size: 2.5rem;
-            font-weight: 600;
+            font-weight: 200;
             color: #0D0C0C;
             line-height: 1.6;
             font-style: italic;

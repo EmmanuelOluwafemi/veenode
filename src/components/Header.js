@@ -13,7 +13,7 @@ const Header = () => {
     return (
         <StyledHeader>
             <div className="logoWrapper">
-            <svg width="60" height="52" viewBox="0 0 60 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <svg width="30" height="30" viewBox="0 0 60 52" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M30 0L14.5 9L30 18L45 9L30 0Z" fill="white"/>
             <path d="M30 34.5L0 18V34.5L30 52L60 34.5V18L30 34.5Z" fill="white"/>
             </svg>
@@ -34,7 +34,7 @@ export default Header;
 const StyledHeader = styled.div`
     width: 100%;
     max-width: 100vw;
-    height: 8.125rem;
+    height: 5.125rem;
     padding: 0 6%;
     display: flex;
     align-items: flex-start;
@@ -45,8 +45,8 @@ const StyledHeader = styled.div`
     }
 
     .logoWrapper {
-        width: 8.125rem;
-        height: 8.125rem;
+        width: 5.125rem;
+        height: 5.125rem;
         background: #00111D;
         display: flex;
         align-items: center;
