@@ -1,15 +1,37 @@
-import React from "react";
-
+import React, {useEffect, useRef} from "react";
+import gsap from "gsap";
 import styled from "styled-components";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 import { IoArrowForward } from 'react-icons/io5';
 
+gsap.registerPlugin(ScrollTrigger);
+
 const About = () => {
+
+    let about = useRef(null);
+
+    useEffect(() => {
+        gsap.from(about.current, 0.8, {
+            delay: 0.8,
+            opacity: 0,
+            ease: "power3.out",
+            y: 80,
+            scrollTrigger: {
+                id: "about",
+                trigger: ".about",
+                start: "top center",
+                stop: "bottom center",
+                toggleActions: "play none none reverse"
+            }
+        })
+
+    }, [])
     return (
         <AboutWrapper>
-            <div className="about-info">
-                <h4>About Us</h4>
-                <p>
+            <div ref={about} className="about-info">
+                <h4 className="about">About Us</h4>
+                <p className="about">
                     Lorem ipsum dolor sit amet, consectetur 
                     adipiscing elit. Enim amet pellentesque. 
                 </p>

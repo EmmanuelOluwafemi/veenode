@@ -1,7 +1,7 @@
-import React from 'react'
-
+import React, {useEffect, useRef } from 'react'
+import gsap from "gsap";
 import styled from 'styled-components'
-
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 // images
 import logo1 from "../../assets/images/logo1.png"
 import logo2 from "../../assets/images/logo2.png"
@@ -9,20 +9,59 @@ import logo3 from "../../assets/images/logo3.png"
 import logo4 from "../../assets/images/logo4.png"
 import logo5 from "../../assets/images/logo5.png"
 
+gsap.registerPlugin(ScrollTrigger);
+
+
 const MoreInfo = () => {
+    let images = useRef(null)
+    let info = useRef(null)
+
+    useEffect(() => {
+        gsap.from(images.current, 0.8, {
+            delay: 0.8,
+            opacity: 0,
+            rotate: "3deg",
+            ease: "power3.out",
+            y: 80,
+           scrollTrigger:{
+                id:"images",
+                trigger: '.logoImg',
+                start: "top center",
+                stop: "bottom center",
+                toggleActions: "play none none reverse",
+              
+           } 
+        })
+
+        gsap.from(info.current, 0.8, {
+            delay: 0.8,
+            opacity: 0,
+            ease: "power3.out",
+            y: 80,
+            scrollTrigger:{
+                id:"info",
+                trigger: '.infoText',
+                start: "top center",
+                stop: "bottom center",
+                toggleActions: "play none none reverse"
+            }
+        })
+
+    }, [])
+
     return (
         <StyledMoreInfo>
-            <div className="logosContainer">
-                <img src={logo1} alt="companies logo" />
-                <img src={logo2} alt="companies logo" />
-                <img src={logo3} alt="companies logo" />
-                <img src={logo4} alt="companies logo" />
-                <img src={logo5} alt="companies logo" />
+            <div ref={images} className="logosContainer">
+                <img src={logo1} className='logoImg' alt="companies logo" />
+                <img src={logo2} className='logoImg' alt="companies logo" />
+                <img src={logo3} className='logoImg' alt="companies logo" />
+                <img src={logo4} className='logoImg' alt="companies logo" />
+                <img src={logo5} className='logoImg' alt="companies logo" />
             </div>
 
-            <div className="moreInfoContainer">
-                <div className="heading">Featured work</div>
-                <div className="para">
+            <div ref={info} className="moreInfoContainer">
+                <div  className="heading infoText">Featured work</div>
+                <div className="para infoText">
                     Lorem ipsum dolor sit amet, consectetur 
                     adipiscing elit. Purus ut facilisis etiam 
                     faucibus. Sem blandit magnis sem eu arcu 

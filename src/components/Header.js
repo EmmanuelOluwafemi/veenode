@@ -1,17 +1,29 @@
-import React, {useState} from "react"
+import React, {useState, useEffect, useRef} from "react"
 import styled from "styled-components";
 import HeaderModal from "./HeaderModal";
 // icons
 import { FiMenu } from 'react-icons/fi';
-
+import gsap from "gsap";
 
 const Header = () => {
     const [click, setClick] = useState(false);
     const toggleNav = () => setClick(!click);
 
+    const headerRef = useRef(null);
+
+    useEffect(() => {
+             gsap.from(headerRef.current, {
+                duration: 3,
+                autoAlpha: 0,
+                rotate: "10deg",
+                ease: "power3.out",
+                delay: 1
+            })
+
+    }, [])
     
     return (
-        <StyledHeader>
+        <StyledHeader ref={headerRef} >
             <div className="logoWrapper">
             <svg width="30" height="30" viewBox="0 0 60 52" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M30 0L14.5 9L30 18L45 9L30 0Z" fill="white"/>

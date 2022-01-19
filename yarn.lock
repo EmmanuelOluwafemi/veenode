@@ -7450,6 +7450,11 @@ lodash.templatesettings@^4.0.0:
   dependencies:
     lodash._reinterpolate "^3.0.0"
 
+lodash.throttle@^4.1.1:
+  version "4.1.1"
+  resolved "https://registry.yarnpkg.com/lodash.throttle/-/lodash.throttle-4.1.1.tgz#c23e91b710242ac70c37f1e1cda9274cc39bf2f4"
+  integrity sha1-wj6RtxAkKscMN/HhzaknTMOb8vQ=
+
 lodash.uniq@^4.5.0:
   version "4.5.0"
   resolved "https://registry.yarnpkg.com/lodash.uniq/-/lodash.uniq-4.5.0.tgz#d0225373aeb652adc1bc82e4945339a842754773"
@@ -9458,6 +9463,13 @@ raw-body@2.4.0:
     http-errors "1.7.2"
     iconv-lite "0.4.24"
     unpipe "1.0.0"
+
+react-animation-on-scroll@^2.1.0:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/react-animation-on-scroll/-/react-animation-on-scroll-2.1.0.tgz#97608c4e5a041eab2de6c19c6f189321b9fd80db"
+  integrity sha512-UuqR569FimfZ5J2vB5dikmDxxAuXJBrQ1iD8GCrUD1u4WVkujkCiRMqDstJdnHtouPolXoZfARtmM5d0YTL0aw==
+  dependencies:
+    lodash.throttle "^4.1.1"
 
 react-app-polyfill@^2.0.0:
   version "2.0.0"

@@ -17,6 +17,13 @@ const Hero = ({ title, subTitle, content, height }) => {
             y: 80,
             stagger: {
                 amount: 0.4
+            },
+            scrollTrigger:{
+                id:"line",
+                trigger: '.content',
+                start: "top center",
+                stop: "bottom center",
+                toggleActions: "play none none reverse",
             }
         })
     }, [line1, line2, line3])

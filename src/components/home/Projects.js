@@ -1,6 +1,9 @@
-import React from 'react'
-
+import React, {useEffect, useRef} from 'react'
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import styled from 'styled-components'
+
+gsap.registerPlugin(ScrollTrigger);
 
 const data = [
     {
@@ -38,10 +41,31 @@ const data = [
 ]
 
 const SingleProject = ({ title, desc }) => {
+    const projectRef = useRef(null);
+    
+    useEffect(() => {
+        gsap.to(projectRef.current, 0.8, {
+            opacity: 1,
+            y: 100,
+            duration: 0.8,
+            ease: "power3.out",
+            scrollTrigger: {
+                id:"project",
+                trigger: '.box',
+                toggleActions: "play none none reverse",
+                ease: "power3.out",
+                start: "top center",
+            }
+        })
+
+
+    }, [])
+
+
     return (
         <SingleProjectContainer>
-           <div className="box-container">
-            <div className="left-boxes">
+           <div  className="box-container">
+            <div ref={projectRef} className="left-boxes">
             
             <div className="box box-1">
             <div className="img-container">
@@ -74,7 +98,7 @@ const SingleProject = ({ title, desc }) => {
             </div>
 
 
-            <div className="right-boxes">
+            <div ref={projectRef} className="right-boxes">
             <div className="box box-4">
             <div className="img-container">
                 <img src="https://via.placeholder.com/507" alt="project" />
