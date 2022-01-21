@@ -1,28 +1,33 @@
 {
   "files": {
     "main.css": "/static/css/main.ce1fc26a.chunk.css",
-    "main.js": "/static/js/main.91cc062d.chunk.js",
-    "main.js.map": "/static/js/main.91cc062d.chunk.js.map",
-    "runtime-main.js": "/static/js/runtime-main.dabf2f5b.js",
-    "runtime-main.js.map": "/static/js/runtime-main.dabf2f5b.js.map",
+    "main.js": "/static/js/main.a9901826.chunk.js",
+    "main.js.map": "/static/js/main.a9901826.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.f38b2409.js",
+    "runtime-main.js.map": "/static/js/runtime-main.f38b2409.js.map",
     "static/css/2.58a45539.chunk.css": "/static/css/2.58a45539.chunk.css",
-    "static/js/2.7c17e5fc.chunk.js": "/static/js/2.7c17e5fc.chunk.js",
-    "static/js/2.7c17e5fc.chunk.js.map": "/static/js/2.7c17e5fc.chunk.js.map",
-    "static/js/3.22f79687.chunk.js": "/static/js/3.22f79687.chunk.js",
-    "static/js/3.22f79687.chunk.js.map": "/static/js/3.22f79687.chunk.js.map",
+    "static/js/2.10ab529c.chunk.js": "/static/js/2.10ab529c.chunk.js",
+    "static/js/2.10ab529c.chunk.js.map": "/static/js/2.10ab529c.chunk.js.map",
+    "static/js/3.126b2766.chunk.js": "/static/js/3.126b2766.chunk.js",
+    "static/js/3.126b2766.chunk.js.map": "/static/js/3.126b2766.chunk.js.map",
     "index.html": "/index.html",
     "static/css/2.58a45539.chunk.css.map": "/static/css/2.58a45539.chunk.css.map",
     "static/css/main.ce1fc26a.chunk.css.map": "/static/css/main.ce1fc26a.chunk.css.map",
-    "static/js/2.7c17e5fc.chunk.js.LICENSE.txt": "/static/js/2.7c17e5fc.chunk.js.LICENSE.txt",
+    "static/js/2.10ab529c.chunk.js.LICENSE.txt": "/static/js/2.10ab529c.chunk.js.LICENSE.txt",
     "static/media/blog.e9395a34.jpg": "/static/media/blog.e9395a34.jpg",
     "static/media/logo.c77d31b9.svg": "/static/media/logo.c77d31b9.svg",
-    "static/media/teammember.be68b21c.jpg": "/static/media/teammember.be68b21c.jpg"
+    "static/media/staff.0a08e493.jpg": "/static/media/staff.0a08e493.jpg",
+    "static/media/staff2.4cb9ad27.jpg": "/static/media/staff2.4cb9ad27.jpg",
+    "static/media/staff3.29a8737d.jpg": "/static/media/staff3.29a8737d.jpg",
+    "static/media/teammember.be68b21c.jpg": "/static/media/teammember.be68b21c.jpg",
+    "static/media/veenode_web.36731822.mp4": "/static/media/veenode_web.36731822.mp4",
+    "static/media/victor.eedb077f.jpg": "/static/media/victor.eedb077f.jpg"
   },
   "entrypoints": [
-    "static/js/runtime-main.dabf2f5b.js",
+    "static/js/runtime-main.f38b2409.js",
     "static/css/2.58a45539.chunk.css",
-    "static/js/2.7c17e5fc.chunk.js",
+    "static/js/2.10ab529c.chunk.js",
     "static/css/main.ce1fc26a.chunk.css",
-    "static/js/main.91cc062d.chunk.js"
+    "static/js/main.a9901826.chunk.js"
   ]
 }
