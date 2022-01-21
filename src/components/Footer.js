@@ -1,26 +1,59 @@
-import React from 'react'
+import React, {useEffect, useRef} from 'react'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 import {AiOutlineArrowRight} from 'react-icons/ai'
+import vicImage from "../assets/images/victor.jpg"
+import {gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+gsap.registerPlugin(ScrollTrigger);
 
 const Footer = () => {
+    const contactRef = useRef(null);
+    const sl = useRef(gsap.timeline());
+
+    useEffect(() => {
+        sl.current = ScrollTrigger.batch(contactRef.current, {
+            onEnter: batch =>
+                gsap.to(batch, {
+                    opacity: 1,
+                    y: 0,
+                    duration: 1,
+                    stagger: { each: 0.15, grid: [1, 3] },
+                    overwrite: true
+                  }),
+                onLeave: batch => gsap.set(batch, {opacity: 0, y: -100, overwrite: true }),
+                onEnterBack: batch =>
+        gsap.to(batch, { opacity: 1, y: 0, stagger: 0.15, overwrite: true }),
+      onLeaveBack: batch =>
+        gsap.set(batch, { opacity: 0, y: 100, overwrite: true }),
+      // you can also define most normal ScrollTrigger values like start, end, etc.
+      start: "20px bottom",
+      end: "+=5000px" 
+      
+        })
+    }, [])
+
     return (
         <StyledFooter>
-            <div className="contact">
-                <div className="contactContent">
-                    <div className="contactMain">
+            <div   className="contact">
+                <div ref={contactRef} className="contactContent">
+                    <div className="contactSc contactMain">
                         Say hi to Victor, our director of new
                         partnerships
                     </div>
-                    <a className="contactLink" href="https://google.com" _blank>
+                    <a className="contactSc contactLink" href="https://google.com" _blank>
                         Contact  👋
                     </a>
                 </div>
-                <div className="imgContainer"></div>
+
+                <div className="imgContainer">
+                    <img className='ceoImage' src={vicImage} alt="" />
+                </div>
             </div>
-            <div className="mainFooter">
-                <div className="firstSection">
-                    <div className="orgTitle">
+            <div  className="mainFooter">
+                <div   className="firstSection">
+                    <div  className="orgTitle">
                     <div className="logoWrapper">
                         <svg className="logo" width="40" height="40" viewBox="0 0 130 130" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <rect width="130" height="130"/>
@@ -35,7 +68,7 @@ const Footer = () => {
                         </p>
                     </div>
 
-                    <div className="links">
+                    <div className="  links">
                         <div className="heading">Veenode</div>
 
                         <Link className="footer-items" to="/about">About</Link>
@@ -43,7 +76,7 @@ const Footer = () => {
                         <Link className="footer-items" to="/contact">Contact</Link>
                     </div>
 
-                    <div className="socialLinks">
+                    <div className="  socialLinks">
                         <div className="heading">Social</div>
 
                         <a className="footer-items" href="https://facebook.com">Facebook</a>
@@ -52,7 +85,7 @@ const Footer = () => {
                         <a className="footer-items" href="https://facebook.com">Linkedin</a>
                     </div>
 
-                    <div className="subscribe">
+                    <div className="  subscribe">
                         <div className="heading">Subscribe</div>
 
                         <form>
@@ -115,13 +148,15 @@ const StyledFooter = styled.section`
                 }
             }
 
+            
+
             .contactLink {
                 display: block;
                 width: 100%;
-                font-size: 2rem;
+                font-size: 1.5rem;
                 margin-top: 2.5rem;
                 font-weight: 600;
-                color: #006EB6;
+                color: #fff;
                 text-decoration: none;
                 
                 @media (max-width: 768px) {
@@ -137,6 +172,11 @@ const StyledFooter = styled.section`
 
             @media (max-width: 768px) {
                 display: none;
+            }
+
+            .ceoImage{
+                width: 100%;
+                height: 100%;
             }
         }
     }
