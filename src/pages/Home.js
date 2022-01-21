@@ -1,8 +1,6 @@
-import React, {useRef, useEffect} from "react"
+import React from "react"
 import styled from "styled-components";
 import Footer from "../components/Footer";
-import {gsap} from "gsap";
-
 // components
 import Header from "../components/Header";
 import About from "../components/home/About";
@@ -20,9 +18,9 @@ const Home = () => {
     return (
         <StyledHome>
             <Header />
-            <Hero 
+             <Hero 
             
-                title="Lorem ipsum dolor sit amet, consectetur adipiscing." 
+                title="Liorem ipsum dolor sit amet, consectetur adipiscing." 
                 subTitle="Etiam fusce elit ac nunc orci ac enim."
                 content={`
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
@@ -31,9 +29,9 @@ const Home = () => {
                     nec dui luctus
                      aliquam tortor.
                 `}
-            />
+            /> 
             <Work />
-            <Hero  
+             <Hero  
                 title="Lorem ipsum dolor sit amet, consectetur adipiscing." 
                 subTitle="Etiam fusce elit ac nunc orci ac enim."
                 content={`
@@ -42,10 +40,10 @@ const Home = () => {
                     laoreet enim viverra ligula eget. Volutpat et, 
                     nec dui luctus aliquam tortor.
                 `}
-            />
+            /> 
 
             <MoreInfo/>
-            <Projects />
+            <Projects /> 
             <About />
             <Testimony />
             <Footer />
@@ -57,4 +55,5 @@ export default Home;
 
 const StyledHome = styled.div`
     width: 100%;
+    position: absolute;
 `

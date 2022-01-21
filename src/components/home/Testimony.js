@@ -1,19 +1,48 @@
-import React from 'react'
-
+import React, {useEffect, useRef} from 'react'
 import styled from 'styled-components'
+import {gsap} from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+gsap.registerPlugin(ScrollTrigger);
 
 const Testimony = () => {
+
+    const testRef = useRef(null); 
+    const sl = useRef(gsap.timeline());
+
+    useEffect(() => {
+        sl.current = ScrollTrigger.batch(testRef.current, {
+            onEnter: batch =>
+                gsap.to(batch, {
+                    opacity: 1,
+                    y: 0,
+                    duration: 5,
+                    stagger: { each: 0.15, grid: [1, 3] },
+                    overwrite: true
+                  }),
+                onLeave: batch => gsap.set(batch, {opacity: 0, y: -100, overwrite: true }),
+                onEnterBack: batch =>
+        gsap.to(batch, { opacity: 1, y: 0, stagger: 0.15, overwrite: true }),
+      onLeaveBack: batch =>
+        gsap.set(batch, { opacity: 0, y: 100, overwrite: true }),
+      // you can also define most normal ScrollTrigger values like start, end, etc.
+      start: "20px bottom",
+      end: "+=5000px" 
+      
+        })
+    }, [])
+
     return (
         <TestimonyContainer>
-            <div className="testimony-content">
-                <h4>testimonial</h4>
-                <p>
+            <div ref={testRef} className="testimony-content">
+                <h4 className='testText'>testimonial</h4>
+                <p className='testText'>
                     “Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
                     Tristique et feugiat ac, neque. Netus lobortis enim 
                     adipiscing iaculis quis malesuada ac.”
                 </p>
 
-                <div className="testimony-author">Cameron Williamson</div>
+                <div  className="testText testimony-author">Cameron Williamson</div>
             </div>
         </TestimonyContainer>
     )

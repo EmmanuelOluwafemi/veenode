@@ -5,27 +5,36 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 import { IoArrowForward } from 'react-icons/io5';
 
+import staff1 from "../../assets/images/staff.jpg"
+import staff2 from "../../assets/images/staff2.jpg"
+import staff3 from "../../assets/images/staff3.jpg"
+
 gsap.registerPlugin(ScrollTrigger);
 
 const About = () => {
 
     let about = useRef(null);
+    const sl = useRef(gsap.timeline());
 
     useEffect(() => {
-        gsap.from(about.current, 0.8, {
-            delay: 0.8,
-            opacity: 0,
-            ease: "power3.out",
-            y: 80,
-            scrollTrigger: {
-                id: "about",
-                trigger: ".about",
-                start: "top center",
-                stop: "bottom center",
-                toggleActions: "play none none reverse"
-            }
+        sl.current = ScrollTrigger.batch(about.current, {
+            onEnter: batch =>
+                gsap.to(batch, {
+                    opacity: 1,
+                    y: 0,
+                    stagger: { each: 0.15, grid: [1, 3] },
+                    overwrite: true
+                  }),
+                onLeave: batch => gsap.set(batch, {opacity: 0, y: -100, overwrite: true }),
+                onEnterBack: batch =>
+        gsap.to(batch, { opacity: 1, y: 0, stagger: 0.15, overwrite: true }),
+      onLeaveBack: batch =>
+        gsap.set(batch, { opacity: 0, y: 100, overwrite: true }),
+      // you can also define most normal ScrollTrigger values like start, end, etc.
+      start: "20px bottom",
+      end: "+=5000px" 
+      
         })
-
     }, [])
     return (
         <AboutWrapper>
@@ -37,7 +46,11 @@ const About = () => {
                 </p>
                 <IoArrowForward className="icons" />
             </div>
-            <div className="aboutImg"></div>
+            <div className="aboutImg">
+            <img className=" staffImage" src={staff1} alt="" />
+            <img className="staffImage" src={staff2} alt="" />
+            <img className="inactive staffImage" src={staff3} alt="" />
+            </div>
         </AboutWrapper>
     )
 }
@@ -50,8 +63,22 @@ const AboutWrapper = styled.section`
     
     .aboutImg {
         width: 100%;
-        height: 400px;
-        background-color: #0D0C0C;
+        height: 500px;
+        display: flex;
+
+            .staffImage{
+            width: 33.33%;
+            @media (max-width: 768px) {
+                width: 50%;
+                height: 400px;
+            }
+        }
+        .inactive{
+            @media (max-width: 768px) {
+                display: none;
+                
+            }
+        }
     }
     
     .about-info {
@@ -65,7 +92,7 @@ const AboutWrapper = styled.section`
         
         h4 {
             font-size: 1rem;
-            font-weight: 200;
+            font-weight: bolder;
             color: #0D0C0C;
             text-transform: uppercase;
             margin-bottom: 2rem;

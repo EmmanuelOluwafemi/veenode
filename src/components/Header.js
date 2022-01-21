@@ -9,22 +9,29 @@ const Header = () => {
     const [click, setClick] = useState(false);
     const toggleNav = () => setClick(!click);
 
-    const headerRef = useRef(null);
+    const logoRef = useRef(null);
+    const iconRef = useRef(null);
 
     useEffect(() => {
-             gsap.from(headerRef.current, {
-                duration: 3,
-                autoAlpha: 0,
-                rotate: "10deg",
+             gsap.from(logoRef.current, {
+                delay: 1,
+                opacity: 0,
+                rotate: "3deg",
                 ease: "power3.out",
-                delay: 1
+                y: 80,
             })
-
+            gsap.from(iconRef.current, {
+                delay: 1,
+                opacity: 0,
+                rotate: "3deg",
+                ease: "power3.out",
+                y: 80,
+            })
     }, [])
     
     return (
-        <StyledHeader ref={headerRef} >
-            <div className="logoWrapper">
+        <StyledHeader  >
+            <div ref={logoRef} className="logoWrapper">
             <svg width="30" height="30" viewBox="0 0 60 52" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M30 0L14.5 9L30 18L45 9L30 0Z" fill="white"/>
             <path d="M30 34.5L0 18V34.5L30 52L60 34.5V18L30 34.5Z" fill="white"/>
@@ -32,7 +39,7 @@ const Header = () => {
 
             </div>
             
-            <div className="menu" onClick ={toggleNav} >
+            <div  ref={iconRef}  className="menu" onClick ={toggleNav} >
               <FiMenu className="icon" /> 
             </div>
             {click && <HeaderModal setOpenModal={setClick} />}

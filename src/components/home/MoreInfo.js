@@ -15,36 +15,44 @@ gsap.registerPlugin(ScrollTrigger);
 const MoreInfo = () => {
     let images = useRef(null)
     let info = useRef(null)
+    const sl = useRef(gsap.timeline());
+
 
     useEffect(() => {
-        gsap.from(images.current, 0.8, {
-            delay: 0.8,
-            opacity: 0,
-            rotate: "3deg",
-            ease: "power3.out",
-            y: 80,
-           scrollTrigger:{
-                id:"images",
-                trigger: '.logoImg',
-                start: "top center",
-                stop: "bottom center",
-                toggleActions: "play none none reverse",
-              
-           } 
+        sl.current = ScrollTrigger.batch(images.current, {
+            onEnter: batch =>
+                gsap.to(batch, {
+                    opacity: 1,
+                    y: 0,
+                    stagger: { each: 0.15, grid: [1, 3] },
+                    overwrite: true
+                  }),
+                onLeave: batch => gsap.set(batch, {opacity: 0, y: -100, overwrite: true }),
+                onEnterBack: batch =>
+        gsap.to(batch, { opacity: 1, y: 0, stagger: 0.15, overwrite: true }),
+      onLeaveBack: batch =>
+        gsap.set(batch, { opacity: 0, y: 100, overwrite: true }),
+    //  you can also define most normal ScrollTrigger values like start, end, etc.
+      start: "20px bottom",
+      end: "+=5000px" 
         })
 
-        gsap.from(info.current, 0.8, {
-            delay: 0.8,
-            opacity: 0,
-            ease: "power3.out",
-            y: 80,
-            scrollTrigger:{
-                id:"info",
-                trigger: '.infoText',
-                start: "top center",
-                stop: "bottom center",
-                toggleActions: "play none none reverse"
-            }
+        sl.current = ScrollTrigger.batch(info.current, {
+            onEnter: batch =>
+                gsap.to(batch, {
+                    opacity: 1,
+                    y: 0,
+                    stagger: { each: 0.15, grid: [1, 3] },
+                    overwrite: true
+                  }),
+                onLeave: batch => gsap.set(batch, {opacity: 0, y: -100, overwrite: true }),
+                onEnterBack: batch =>
+        gsap.to(batch, { opacity: 1, y: 0, stagger: 0.15, overwrite: true }),
+      onLeaveBack: batch =>
+        gsap.set(batch, { opacity: 0, y: 100, overwrite: true }),
+    //  you can also define most normal ScrollTrigger values like start, end, etc.
+      start: "20px bottom",
+      end: "+=5000px" 
         })
 
     }, [])

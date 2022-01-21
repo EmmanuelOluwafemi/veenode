@@ -3,6 +3,7 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import styled from 'styled-components'
 
+
 gsap.registerPlugin(ScrollTrigger);
 
 const data = [
@@ -42,23 +43,31 @@ const data = [
 
 const SingleProject = ({ title, desc }) => {
     const projectRef = useRef(null);
-    
+    const sl = useRef(gsap.timeline());
+    const boxReveal = [];
+
+
     useEffect(() => {
-        gsap.to(projectRef.current, 0.8, {
-            opacity: 1,
-            y: 100,
-            duration: 0.8,
-            ease: "power3.out",
-            scrollTrigger: {
-                id:"project",
-                trigger: '.box',
-                toggleActions: "play none none reverse",
-                ease: "power3.out",
-                start: "top center",
-            }
+        gsap.set(boxReveal, {y:100});
+        sl.current = ScrollTrigger.batch(boxReveal, {
+            onEnter: batch =>
+                gsap.to(batch, {
+                    opacity: 1,
+                    y: 0,
+                    stagger: { each: 0.15, grid: [1, 3] },
+                    overwrite: true
+                  }),
+                onLeave: batch => gsap.set(batch, {opacity: 0, y: -100, overwrite: true }),
+                onEnterBack: batch =>
+        gsap.to(batch, { opacity: 1, y: 0, stagger: 0.15, overwrite: true }),
+      onLeaveBack: batch =>
+        gsap.set(batch, { opacity: 0, y: 100, overwrite: true }),
+      // you can also define most normal ScrollTrigger values like start, end, etc.
+      start: "20px bottom",
+      end: "+=5000px" 
+
         })
-
-
+        ScrollTrigger.refresh();
     }, [])
 
 
@@ -67,7 +76,7 @@ const SingleProject = ({ title, desc }) => {
            <div  className="box-container">
             <div ref={projectRef} className="left-boxes">
             
-            <div className="box box-1">
+            <div  ref={el => {boxReveal.push(el)}} className="box box-1">
             <div className="img-container">
                 <img src="https://via.placeholder.com/200" alt="project" />
             </div>
@@ -76,7 +85,7 @@ const SingleProject = ({ title, desc }) => {
                 <p className="description">{data.[0].desc}</p>
             </div>
             </div>
-            <div className="box box-2">
+            <div  ref={el => {boxReveal.push(el)}} className="box box-2">
             <div className="img-container">
                 <img src="https://via.placeholder.com/507" alt="project" />
             </div>
@@ -85,11 +94,11 @@ const SingleProject = ({ title, desc }) => {
                 <p className="description">{data.[1].desc}</p>
             </div>
             </div>
-            <div className="box box-3">
+            <div  ref={el => {boxReveal.push(el)}} className="box box-3">
             <div className="img-container">
                 <img src="https://via.placeholder.com/507" alt="project" />
             </div>
-            <div className="project-info">
+            <div  ref={el => {boxReveal.push(el)}} className="project-info">
             <h4 className="title">{data.[1].title}</h4>
                 <p className="description">{data.[2].desc}</p>
             </div>
@@ -99,7 +108,7 @@ const SingleProject = ({ title, desc }) => {
 
 
             <div ref={projectRef} className="right-boxes">
-            <div className="box box-4">
+            <div   ref={el => {boxReveal.push(el)}} className="box box-4">
             <div className="img-container">
                 <img src="https://via.placeholder.com/507" alt="project" />
             </div>
@@ -108,7 +117,7 @@ const SingleProject = ({ title, desc }) => {
                 <p className="description">{data.[3].desc}</p>
             </div>
             </div>
-            <div className="box box-5">
+            <div ref={el => {boxReveal.push(el)}} className="box box-5">
             <div className="img-container">
                 <img src="https://via.placeholder.com/507" alt="project" />
             </div>
@@ -117,7 +126,7 @@ const SingleProject = ({ title, desc }) => {
                 <p className="description">{data.[4].desc}</p>
             </div>
             </div>
-            < div className="box box-6">
+            < div ref={el => {boxReveal.push(el)}}  className="box box-6">
             <div className="img-container">
                 <img src="https://via.placeholder.com/507" alt="project" />
             </div>
@@ -218,10 +227,13 @@ const SingleProjectContainer = styled.div`
     }
 
     .right-boxes{
-        padding-left: 20px;
+        /* padding-left: 20px; */
         padding-top: 50px;
         display: flex;
         flex-direction: column;
+        @media (max-width: 768px) {
+            padding-left: 0px;
+        }
     }
 
     .project-info {
