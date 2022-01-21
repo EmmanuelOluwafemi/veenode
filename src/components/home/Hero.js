@@ -2,7 +2,7 @@ import gsap from "gsap";
 import React, { useEffect, useRef } from "react"
 import styled from "styled-components";
 
-const Hero = ({ title, subTitle, content, height }) => {
+const Hero = ({ title, subTitle, content, height, homeHeader }) => {
 
     let line1 = useRef(null)
     let line2 = useRef(null)
@@ -24,7 +24,7 @@ const Hero = ({ title, subTitle, content, height }) => {
 
 
     return (
-        <StyledHero height={height}>
+        <StyledHero homeHeader={homeHeader} height={height}>
             <div className="dash" />
             <div className="content">
                 <h5 ref={el => (line1 = el)}>
@@ -51,6 +51,7 @@ const StyledHero = styled.div`
     max-width: 100vw;
     height: ${(p) => p.height ? p.height : 'calc(100vh - 8.125rem)'};
     padding: 11rem 15%;
+    padding-bottom: {(p) => p.homeHeader ? '30rem' : '11rem'};
     display: flex;
     justify-content: center;
     align-self: center;

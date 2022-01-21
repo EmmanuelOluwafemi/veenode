@@ -51,9 +51,9 @@ const Work = () => {
         <StyledWork>
             <div className="videoContainer">
             <div className="introVideo">
-            <video muted autoplay playsInline preload="true" loop ref={videoRef}  className='veedio'>
-               <source src={veeDio} type='video/mp4'/> 
-            </video>
+                <video muted autoplay playsInline preload="true" loop ref={videoRef}  className='veedio'>
+                <source src={veeDio} type='video/mp4'/> 
+                </video>
             </div>
             </div>
             <div id='content'  className="contentContainer">
@@ -108,7 +108,7 @@ const StyledWork = styled.section`
         width: 100%;
         background: #000;
         color: #fff;
-        margin-top: -20rem;
+        margin-top: -15rem;
         display: flex;
         z-index: -1000;
         @media (max-width: 768px) {

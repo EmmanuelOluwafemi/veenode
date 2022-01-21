@@ -19,7 +19,7 @@ const Home = () => {
         <StyledHome>
             <Header />
              <Hero 
-            
+                homeHeader={true}
                 title="Liorem ipsum dolor sit amet, consectetur adipiscing." 
                 subTitle="Etiam fusce elit ac nunc orci ac enim."
                 content={`
