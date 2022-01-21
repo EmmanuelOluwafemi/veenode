@@ -1,10 +1,28 @@
-import React from 'react'
+import gsap from "gsap";
+import React, { useEffect, useRef } from "react"
 import styled from "styled-components";
 import {FaTimes} from "react-icons/fa";
 import { NavLink } from 'react-router-dom';
 
 
 const HeaderModal = ({setOpenModal}) => {
+    let line1 = []
+   
+    useEffect(() => {
+        gsap.from(line1, 0.8, {
+            delay: 1,
+            duration: 1,
+            opacity: 0,
+            rotate: "3deg",
+            ease: "power3.out",
+            y: 100,
+            stagger: {
+                amount: 0.4
+            }
+        })
+    }, [line1]);
+    
+
     return (
         <ModalContent>
            <div className="modalBackground">
@@ -24,7 +42,7 @@ const HeaderModal = ({setOpenModal}) => {
                     </div>
                 </div>
                 <div className="modalBody">
-                    <div className="rightContent">
+                    <div  ref={el => {line1.push(el)}} className="rightContent">
                         <ul className="contentDetails">
                             <li className="contentItems">New business</li>
                             <li className="contentItems">Example@gmail.com</li>
@@ -37,7 +55,7 @@ const HeaderModal = ({setOpenModal}) => {
                             <li className="contentItems">Chicago, IL 60654</li>
                         </ul>
                     </div>
-                    <div className="leftContent">
+                    <div ref={el => {line1.push(el)}} className="leftContent">
                         <ul className="menuList">
                             <NavLink to="/about" className="menuItems">About</NavLink>
                             <NavLink to="/contact" className="menuItems">Contact  👋</NavLink>
@@ -60,7 +78,8 @@ const ModalContent = styled.div `
     left: 0;
     top: 0;
     overflow: hidden;
-    z-index: 3;
+    z-index: 1000;
+    /* background-color: #000C13; */
 
 
   .modalContainer{
@@ -71,7 +90,7 @@ const ModalContent = styled.div `
         display: flex;
         flex-direction: column;
         padding: 0 8.375rem; 
-
+      
         @media (max-width: 768px) {
             padding: 0 2rem;
         }
@@ -80,7 +99,7 @@ const ModalContent = styled.div `
       display: flex;
        top: 0; 
        justify-content: space-between;
-         align-items: center;
+        align-items: center;
       /* margin-top: -10px; */
   }
 
@@ -121,6 +140,7 @@ const ModalContent = styled.div `
         .rightContent {
             @media (max-width: 768px) {
                 order: 2;
+                display: none;
             }
 
             .contentDetails{
@@ -162,7 +182,7 @@ const ModalContent = styled.div `
                 font-weight: 600;
 
                 @media (max-width: 768px) {
-                    font-size: 1.25rem;
+                    font-size: 2.25rem;
                     text-align: center;
                 }
             }
@@ -179,9 +199,9 @@ const ModalContent = styled.div `
         font-weight: 600;
 
         @media (max-width: 768px) {
-            font-size: 1.25rem;
+            font-size: 2.25rem;
             text-align: center;
-            margin-top: 1rem;
+            margin-top: 5rem;
         }
     }
 `

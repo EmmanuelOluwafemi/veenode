@@ -10,11 +10,12 @@ const Hero = ({ title, subTitle, content, height }) => {
 
     useEffect(() => {
         gsap.from([line1, line2, line3], 0.8, {
-            delay: 0.8,
+            delay: 1,
+            duration: 1,
             opacity: 0,
             rotate: "3deg",
             ease: "power3.out",
-            y: 80,
+            y: 100,
             stagger: {
                 amount: 0.4
             }
@@ -49,21 +50,19 @@ const StyledHero = styled.div`
     width: 100%;
     max-width: 100vw;
     height: ${(p) => p.height ? p.height : 'calc(100vh - 8.125rem)'};
-    padding: 3rem 12%;
+    padding: 11rem 15%;
     display: flex;
-    align-items: flex-start;
-    padding-top: 8rem;
-
+    justify-content: center;
+    align-self: center;
+    column-gap: 20px;
     @media (max-width: 768px) {
         padding: 2rem 2rem;
         height: ${(p) => p.height ? p.height : 'calc(100vh - 19rem)'};
     }
-
     .dash {
         width: 3rem;
-        height: 4px;
+        height: 2px;
         background: #00111D;
-
         @media (max-width: 768px) {
             display: none;
         }
@@ -73,37 +72,31 @@ const StyledHero = styled.div`
         flex-grow: 1;
         margin-left: 2rem;
         max-width: 958px;
-
         @media (max-width: 768px) {
             margin-left: 0;
             padding-top: 3rem;
         }
-
         h2 {
-            font-size: 3.5rem;
-            font-weight: 600;
+            font-size: 3.0rem;
+            font-weight: 200;
             color: #00111D;
             text-transform: uppercase;
             line-height: 1.3;
-
             @media (max-width: 768px) {
                 font-size: 2rem;
             }
         }
-
         h5 {
-            font-weight: 600;
+            font-weight: 200;
             color: #00111D;
             font-size: 1rem;
             text-transform: uppercase;
             margin-top: -.5rem;
             margin-bottom: 1rem;
-
             @media (max-width: 768px) {
                 font-size: .85rem;
             }
         }
-
         p {
             font-size: 1rem;
             font-weight: 400;
@@ -111,10 +104,10 @@ const StyledHero = styled.div`
             line-height: 1.5;
             max-width: 568px;
             margin-top: 1rem;
-
             @media (max-width: 768px) {
                 font-size: .85rem;
             }
+
         }
     }
 `

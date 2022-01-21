@@ -1,26 +1,45 @@
-import React, {useState} from "react"
+import React, {useState, useEffect, useRef} from "react"
 import styled from "styled-components";
 import HeaderModal from "./HeaderModal";
 // icons
 import { FiMenu } from 'react-icons/fi';
-
+import gsap from "gsap";
 
 const Header = () => {
     const [click, setClick] = useState(false);
     const toggleNav = () => setClick(!click);
 
+    const logoRef = useRef(null);
+    const iconRef = useRef(null);
+
+    useEffect(() => {
+             gsap.from(logoRef.current, {
+                delay: 1,
+                opacity: 0,
+                rotate: "3deg",
+                ease: "power3.out",
+                y: 80,
+            })
+            gsap.from(iconRef.current, {
+                delay: 1,
+                opacity: 0,
+                rotate: "3deg",
+                ease: "power3.out",
+                y: 80,
+            })
+    }, [])
     
     return (
-        <StyledHeader>
-            <div className="logoWrapper">
-            <svg width="60" height="52" viewBox="0 0 60 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <StyledHeader  >
+            <div ref={logoRef} className="logoWrapper">
+            <svg width="30" height="30" viewBox="0 0 60 52" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M30 0L14.5 9L30 18L45 9L30 0Z" fill="white"/>
             <path d="M30 34.5L0 18V34.5L30 52L60 34.5V18L30 34.5Z" fill="white"/>
             </svg>
 
             </div>
             
-            <div className="menu" onClick ={toggleNav} >
+            <div  ref={iconRef}  className="menu" onClick ={toggleNav} >
               <FiMenu className="icon" /> 
             </div>
             {click && <HeaderModal setOpenModal={setClick} />}
@@ -34,7 +53,7 @@ export default Header;
 const StyledHeader = styled.div`
     width: 100%;
     max-width: 100vw;
-    height: 8.125rem;
+    height: 5.125rem;
     padding: 0 6%;
     display: flex;
     align-items: flex-start;
@@ -45,8 +64,8 @@ const StyledHeader = styled.div`
     }
 
     .logoWrapper {
-        width: 8.125rem;
-        height: 8.125rem;
+        width: 5.125rem;
+        height: 5.125rem;
         background: #00111D;
         display: flex;
         align-items: center;

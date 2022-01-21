@@ -1,29 +1,62 @@
-import React from 'react'
+import React, {useEffect, useRef} from 'react'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 import {AiOutlineArrowRight} from 'react-icons/ai'
+import vicImage from "../assets/images/victor.jpg"
+import {gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+gsap.registerPlugin(ScrollTrigger);
 
 const Footer = () => {
+    const contactRef = useRef(null);
+    const sl = useRef(gsap.timeline());
+
+    useEffect(() => {
+        sl.current = ScrollTrigger.batch(contactRef.current, {
+            onEnter: batch =>
+                gsap.to(batch, {
+                    opacity: 1,
+                    y: 0,
+                    duration: 1,
+                    stagger: { each: 0.15, grid: [1, 3] },
+                    overwrite: true
+                  }),
+                onLeave: batch => gsap.set(batch, {opacity: 0, y: -100, overwrite: true }),
+                onEnterBack: batch =>
+        gsap.to(batch, { opacity: 1, y: 0, stagger: 0.15, overwrite: true }),
+      onLeaveBack: batch =>
+        gsap.set(batch, { opacity: 0, y: 100, overwrite: true }),
+      // you can also define most normal ScrollTrigger values like start, end, etc.
+      start: "20px bottom",
+      end: "+=5000px" 
+      
+        })
+    }, [])
+
     return (
         <StyledFooter>
-            <div className="contact">
-                <div className="contactContent">
-                    <div className="contactMain">
+            <div   className="contact">
+                <div ref={contactRef} className="contactContent">
+                    <div className="contactSc contactMain">
                         Say hi to Victor, our director of new
                         partnerships
                     </div>
-                    <a className="contactLink" href="https://google.com" _blank>
+                    <a className="contactSc contactLink" href="https://google.com" _blank>
                         Contact  👋
                     </a>
                 </div>
-                <div className="imgContainer"></div>
+
+                <div className="imgContainer">
+                    <img className='ceoImage' src={vicImage} alt="" />
+                </div>
             </div>
-            <div className="mainFooter">
-                <div className="firstSection">
-                    <div className="orgTitle">
+            <div  className="mainFooter">
+                <div   className="firstSection">
+                    <div  className="orgTitle">
                     <div className="logoWrapper">
-                        <svg className="logo" width="130" height="130" viewBox="0 0 130 130" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <rect width="130" height="130" fill="white"/>
+                        <svg className="logo" width="40" height="40" viewBox="0 0 130 130" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="130" height="130"/>
                         <path d="M65 39L49.5 48L65 57L80 48L65 39Z" fill="#006EB6"/>
                         <path d="M65 73.5L35 57V73.5L65 91L95 73.5V57L65 73.5Z" fill="#006EB6"/>
                         </svg>
@@ -35,7 +68,7 @@ const Footer = () => {
                         </p>
                     </div>
 
-                    <div className="links">
+                    <div className="  links">
                         <div className="heading">Veenode</div>
 
                         <Link className="footer-items" to="/about">About</Link>
@@ -43,7 +76,7 @@ const Footer = () => {
                         <Link className="footer-items" to="/contact">Contact</Link>
                     </div>
 
-                    <div className="socialLinks">
+                    <div className="  socialLinks">
                         <div className="heading">Social</div>
 
                         <a className="footer-items" href="https://facebook.com">Facebook</a>
@@ -52,7 +85,7 @@ const Footer = () => {
                         <a className="footer-items" href="https://facebook.com">Linkedin</a>
                     </div>
 
-                    <div className="subscribe">
+                    <div className="  subscribe">
                         <div className="heading">Subscribe</div>
 
                         <form>
@@ -105,7 +138,7 @@ const StyledFooter = styled.section`
 
             .contactMain {
                 font-size: 2.5rem;
-                font-weight: 600;
+                font-weight: 200;
                 line-height: 1.5;
                 color: #fff;
 
@@ -115,13 +148,15 @@ const StyledFooter = styled.section`
                 }
             }
 
+            
+
             .contactLink {
                 display: block;
                 width: 100%;
-                font-size: 2rem;
+                font-size: 1.5rem;
                 margin-top: 2.5rem;
                 font-weight: 600;
-                color: #006EB6;
+                color: #fff;
                 text-decoration: none;
                 
                 @media (max-width: 768px) {
@@ -137,6 +172,11 @@ const StyledFooter = styled.section`
 
             @media (max-width: 768px) {
                 display: none;
+            }
+
+            .ceoImage{
+                width: 100%;
+                height: 100%;
             }
         }
     }
@@ -218,8 +258,7 @@ const StyledFooter = styled.section`
         font-size: 1.125rem;
         text-transform: uppercase;
         color: #8D8D8D;
-        margin-bottom: 1rem;
-        margin-top: 2.5rem;
+        margin-bottom: 3rem;
 
         @media (max-width: 768px) {
             text-align: center;
@@ -249,17 +288,17 @@ const StyledFooter = styled.section`
         width: 100%;
         max-width: 381px;
         height: 2;
-        border-top-style: hidden;
-        border-right-style: hidden;
-        border-left-style: hidden;
-        border-bottom-style: groove;
+        outline: 0;
+        border-width: 0 0 2px;
         border-color: #ffff;
         background-color: #000C13;
         color: #fff;
+        font-size: 1.2rem;
         
     }
     .arrow-icon{
         float: right;
+        bottom: 30px;
         margin-top: 5px; 
         position: relative;
         z-index: 2;
